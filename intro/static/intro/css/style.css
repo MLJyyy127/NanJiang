@@ -1,0 +1,130 @@
+/* 全局基础设置 */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    font-family: "Noto Serif SC", serif;
+}
+
+/* 办公桌背景：建议找一张暗色调的俯视素材 */
+.desk-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/desk_bg.jpg') center/cover no-repeat;
+    filter: brightness(0.6); /* 调暗背景，营造昏暗光线 */
+    z-index: 1;
+}
+
+/* 叙事文字层 */
+.narrative-layer {
+    position: relative;
+    z-index: 10;
+    color: #e0e0e0;
+    padding: 50px;
+    max-width: 600px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.typewriter-text {
+    line-height: 1.8;
+    font-size: 1.2rem;
+    min-height: 100px;
+}
+
+/* 交互区居中 */
+.interaction-area {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 500px;
+    height: 400px;
+}
+
+/* 档案袋样式 */
+.archive-bag {
+    width: 350px;
+    height: 450px;
+    background: #c5a880; /* 模拟牛皮纸色 */
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* 悬停反馈：轻微发光效果 */
+.archive-bag:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* 绝密印章 */
+.stamp {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    border: 4px solid #8b0000;
+    color: #8b0000;
+    padding: 10px;
+    font-weight: bold;
+    transform: rotate(15deg);
+    font-size: 2rem;
+    opacity: 0.8;
+    -webkit-user-select: none;
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/* U盘样式 */
+.usb-drive {
+    width: 40px;
+    height: 80px;
+    background: #a0a0a0; /* 银色金属感 */
+    position: absolute;
+    top: -20px;
+    left: 40%;
+    cursor: pointer;
+    z-index: 6;
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* 悬停反馈：U盘向上浮起 */
+.usb-drive:hover {
+    transform: translateY(-10px);
+}
+
+.usb-label {
+    font-size: 10px;
+    color: black;
+    background: white;
+    padding: 2px;
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* 隐藏与显示逻辑 */
+.hidden { opacity: 0; pointer-events: none; }
+.btn-next {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    padding: 15px 30px;
+    background: #8b0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: opacity 1s;
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}首页 - 南江大学{% endblock %}
+
+{% block content %}
+    <div class="left-column">
+        <div style="background: white; padding: 40px; border: 1px solid #ddd; border-radius: 4px;">
+            <h2 style="color: #003366; margin-top: 0;">欢迎来到南江大学</h2>
+            <p>这是官网首页的测试内容。如果左右两栏排列正常，说明布局成功。</p>
+            <hr>
+            <p>当前时间：2025年5月17日</p>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div style="background: #e7eff6; padding: 20px; border: 1px solid #bcd4e6; border-radius: 4px;">
+            <h4 style="margin-top: 0;">校园公告</h4>
+            <ul style="padding-left: 20px; font-size: 14px;">
+                <li>欢迎新同学 (2025-05-17)</li>
+                <li>关于系统维护的通知</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USB 驱动器 (F:) - 根目录</title>
+    <link rel="stylesheet" href="{% static 'usb_drive/css/style.css' %}">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+    <div class="header">设备: SQ_BACKUP (F:)</div>
+    <hr>
+
+    <div class="file-grid">
+        <a href="{% static 'usb_drive/images/DSC_0195.jpg' %}" target="_blank" class="file-icon">
+            <img src="{% static 'usb_drive/images/img_icon.png' %}" alt="JPG">
+            <div>DSC_0195.jpg</div>
+        </a>
+
+        <a href="{% url 'usb_draft' %}" class="file-icon">
+            <img src="{% static 'usb_drive/images/txt_icon.png' %}" alt="TMP">
+            <div>~WRL0002.tmp</div>
+        </a>
+
+        <div class="file-icon">
+            <img src="{% static 'usb_drive/images/folder_icon.png' %}" alt="Folder">
+            <div>实验室改建_新闻材料</div>
+        </div>
+
+        <div class="file-grid">
+            <a href="{% url 'campus_index' %}" class="file-icon portal-link">
+                <img src="{% static 'usb_drive/images/world_icon.png' %}" alt="URL">
+                <div style="color: #4db8ff; font-weight: bold;">南江大学-综合信息门户.url</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

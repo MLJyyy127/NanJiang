@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>~WRL0002.tmp - 记事本</title>
+		<style>
+			body {
+				background: #c0c0c0;
+				padding: 20px;
+				font-family: "Courier New", Courier, monospace;
+			}
+			.notepad {
+				background: white;
+				border: 2px solid #888;
+				padding: 30px;
+				max-width: 600px;
+				margin: 0 auto;
+				color: #333;
+				line-height: 1.5;
+			}
+			.meta-data {
+				color: #999;
+				font-size: 0.8rem;
+				margin-bottom: 20px;
+				border-bottom: 1px solid #eee;
+			}
+			.hidden-clue {
+				color: #555;
+				font-weight: bold;
+				margin-top: 30px;
+			}
+
+			/* 标题栏样式 */
+			.notepad-header {
+				background: #000080; /* 经典WinXP深蓝色标题栏，也可以改用灰色 */
+				color: white;
+				padding: 5px 10px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 14px;
+				margin: -30px -30px 20px -30px; /* 抵消掉父容器的 padding */
+			}
+
+			/* 叉掉按钮样式 */
+			.close-btn {
+				color: white;
+				text-decoration: none;
+				background: #c0c0c0;
+				color: black;
+				width: 18px;
+				height: 18px;
+				text-align: center;
+				line-height: 16px;
+				border: 1px solid #fff;
+				box-shadow: 1px 1px 1px #000;
+				font-weight: bold;
+			}
+
+			.close-btn:hover {
+				background: #ff4545; /* 鼠标悬停变红 */
+				color: white;
+			}
+
+			/* 确保内容区不会被标题栏遮挡 */
+			.notepad-content {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="notepad">
+			<div class="notepad-header">
+				<span class="file-name">~WRL0002.tmp - 记事本</span>
+				<a href="{% url 'usb_home' %}" class="close-btn" title="关闭">×</a>
+			</div>
+
+			<div class="notepad-content">
+				<div class="meta-data">
+					最后修改时间: 2015/09/18 20:14:05 | 状态: 临时保存
+				</div>
+
+				<p>【采访大纲：南江大学食堂扩建工程】</p>
+				<p>1. 采访后勤处李科长，确认三食堂二楼翻新时间。</p>
+				<p>2. 询问学生会关于菜品价格调整的反馈意见。</p>
+				<p>3. 拍摄施工现场照片（注意避开挡板区域）。</p>
+
+				<p>【2025校运动会报道草稿】</p>
+				<p>标题：青春赛场，梦想启航。本报讯，我校第30届运动会圆满落幕...</p>
+				<p>...（此处省略一堆冗长的报道内容）...</p>
+				<p>...0x123FF...EOF...RECOVER...</p>
+
+				<p class="hidden-clue">
+					（私记）实验楼改建的批文应该能在档案馆查到电子版，之前王主任提过权限申请要走线上流程，网址好像就是校园网首页的“数字档案馆”。得先找到档案编号……
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

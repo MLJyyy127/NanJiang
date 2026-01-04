@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>南江大学：绝密档案 1995</title>
+    <link rel="stylesheet" href="{% static 'intro/css/style.css' %}">
+</head>
+<body>
+    <div class="scene">
+        <div class="desk-bg"></div>
+
+        <div class="narrative-layer">
+            <h1 class="game-title">南江大学：绝密档案 1995</h1>
+            <div id="typewriter" class="typewriter-text"></div>
+        </div>
+
+        <div class="interaction-area">
+            <div class="hidden-paper">南江大学...</div>
+
+            <div id="archive-bag" class="archive-bag">
+                <span class="stamp">绝密</span>
+            </div>
+
+            <div id="usb-drive" class="usb-drive hidden">
+                <span class="usb-label">SQ</span>
+            </div>
+        </div>
+        
+        <button id="btn-next" class="btn-next hidden">启动 U 盘文件系统</button>
+    </div>
+
+    <script src="{% static 'intro/js/script.js' %}"></script>
+</body>
+</html>
