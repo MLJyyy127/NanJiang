@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}校史档案 - 南江大学{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'campus/css/archive.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="archive-container">
+    <!-- 档案室警告横幅 -->
+    <div class="archive-banner">
+        <div class="warning-icon">⚠</div>
+        <div class="warning-text">
+            <h3>绝密档案室</h3>
+            <p>以下档案均为南江大学历史上未解悬案，仅限授权人员查阅</p>
+        </div>
+        <div class="security-level">
+            <span class="security-badge">最高机密</span>
+            <span class="access-code">访问代码：NJ-1995-███</span>
+        </div>
+    </div>
+
+    <!-- 档案导航 -->
+    <div class="archive-nav">
+        <div class="nav-tabs">
+            <a href="{% url 'campus:archive_index' %}" class="nav-tab {% if request.path == '/campus/archive/' %}active{% endif %}">全部案件</a>
+            <a href="{% url 'campus:archive_category' 'unsolved' %}" class="nav-tab {% if 'unsolved' in request.path %}active{% endif %}">未解之谜</a>
+            <a href="{% url 'campus:archive_category' 'student' %}" class="nav-tab {% if 'student' in request.path %}active{% endif %}">学生案件</a>
+            <a href="{% url 'campus:archive_category' 'faculty' %}" class="nav-tab {% if 'faculty' in request.path %}active{% endif %}">教职工案件</a>
+            <a href="{% url 'campus:archive_category' 'building' %}" class="nav-tab {% if 'building' in request.path %}active{% endif %}">建筑相关</a>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="搜索档案关键词..." id="archive-search">
+            <button onclick="searchArchives()">🔍</button>
+        </div>
+    </div>
+
+    <!-- 五个恐怖悬疑案件档案 - 使用循环动态生成 -->
+    <div class="archives-grid">
+        {% for case in cases %}
+        <div class="archive-card" data-category="{{ case.category }}" data-status="{{ case.status }}">
+            <div class="archive-header">
+                <span class="archive-id">档案编号：{{ case.case_id }}</span>
+                <span class="archive-status {{ case.status }}">
+                    {% if case.status == 'unsolved' %}未解决
+                    {% elif case.status == 'sealed' %}已封存
+                    {% elif case.status == 'investigating' %}调查中
+                    {% endif %}
+                </span>
+            </div>
+            <h3 class="archive-title">{{ case.title }}</h3>
+            <div class="archive-meta">
+                <span class="meta-item"><strong>发生时间：</strong>{{ case.date }}</span>
+                <span class="meta-item"><strong>地点：</strong>{{ case.location }}</span>
+                <span class="meta-item"><strong>涉及人员：</strong>{{ case.persons }}</span>
+            </div>
+            <div class="archive-content">
+                <!-- 根据案件ID显示不同的摘要内容 -->
+                {% if case.id == 1 %}
+                <p>1995年10月17日深夜，三名历史系学生在老图书馆B1层的"第七藏书室"（该室在官方平面图中不存在）查阅档案时突然消失。监控显示他们进入B1层走廊后，再也没有出来。</p>
+                {% elif case.id == 2 %}
+                <p>1998年至2002年间，七名音乐系学生在单独练习时遭遇相同经历：午夜12点后，钢琴会自动弹奏肖邦的《葬礼进行曲》，演奏者位置空无一人。所有目击者都在一周内退学。</p>
+                {% elif case.id == 3 %}
+                <p>1987年，遗传学张教授进行秘密实验时发生泄露。次日早晨，实验室被发现时，三人已不见踪影，只留下大量不符合已知生物特征的细胞样本和一段令人不安的录音。</p>
+                {% elif case.id == 4 %}
+                <p>梅园3号楼在设计上只有12间宿舍，但多名学生报告在深夜看到第13间的门牌。进入者会经历时间错乱，出来后发现自己失踪了数小时甚至数天，且对期间经历毫无记忆。</p>
+                {% elif case.id == 5 %}
+                <p>夜间巡逻的保安王建国报告，镜湖中心在无风情况下产生漩涡，并从中传出"类似多人低语"的声音。声纳探测显示湖底有大型人工结构，但历史记录中从未提及此处有建筑。</p>
+                {% else %}
+                <p>{{ case.content|striptags|truncatechars:150 }}</p>
+                {% endif %}
+                
+                <!-- 显示前3条线索 -->
+                {% if case.clues %}
+                <div class="archive-clue">
+                    <h4>📝 现场线索：</h4>
+                    <ul>
+                        {% for clue in case.clues|slice:":3" %}
+                        <li>{{ clue }}</li>
+                        {% endfor %}
+                        {% if case.clues|length > 3 %}
+                        <li>...还有 {{ case.clues|length|add:"-3" }} 条线索</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
+                
+                <!-- 显示警告信息 -->
+                {% if case.warning and case.id == 1 %}
+                <div class="archive-warning">
+                    <strong>⚠ 访问警告：</strong> {{ case.warning }}
+                </div>
+                {% elif case.warning and case.id == 3 %}
+                <div class="archive-warning danger">
+                    <strong>☣ 生物危害警告：</strong> {{ case.warning }}
+                </div>
+                {% elif case.warning and case.id == 5 %}
+                <div class="archive-warning">
+                    <strong>⚠ 最新发现：</strong> {{ case.warning }}
+                </div>
+                {% endif %}
+                
+                <!-- 显示备注信息 -->
+                {% if case.note and case.id == 2 %}
+                <div class="archive-note">
+                    <strong>📌 调查笔记：</strong> {{ case.note }}
+                </div>
+                {% elif case.note and case.id == 4 %}
+                <div class="archive-note">
+                    <strong>📌 现行规定：</strong> {{ case.note }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="archive-footer">
+                <a href="{% url 'campus:archive_detail' case.id %}" class="btn-details">查看详情</a>
+                <div class="archive-tags">
+                    {% for tag in case.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="no-results">
+            <h3>暂无案件档案</h3>
+            <p>当前没有可显示的档案记录。</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- 档案统计 -->
+    <div class="archive-stats">
+        <div class="stat-card">
+            <div class="stat-number">{{ total_cases }}</div>
+            <div class="stat-label">悬案总数</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">{{ unsolved_cases }}</div>
+            <div class="stat-label">未解决</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">{{ involved_persons }}</div>
+            <div class="stat-label">涉及人员</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">{{ earliest_year }}</div>
+            <div class="stat-label">最早案件</div>
+        </div>
+    </div>
+</div>
+
+<!-- 详情模态框 -->
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'campus/js/archive.js' %}"></script>
+<script>
+    // 搜索功能
+    function searchArchives() {
+        const searchTerm = document.getElementById('archive-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.archive-card');
+        
+        cards.forEach(card => {
+            const title = card.querySelector('.archive-title').textContent.toLowerCase();
+            const content = card.querySelector('.archive-content').textContent.toLowerCase();
+            const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+            
+            if (title.includes(searchTerm) || content.includes(searchTerm) || tags.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // 按Enter键搜索
+    document.getElementById('archive-search').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchArchives();
+        }
+    });
+    
+    // 过滤功能（可以根据状态筛选）
+    function filterArchives(status) {
+        const cards = document.querySelectorAll('.archive-card');
+        
+        cards.forEach(card => {
+            if (status === 'all' || card.getAttribute('data-status') === status) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+{% endblock %}

@@ -3,23 +3,241 @@
 
 {% block title %}首页 - 南江大学{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'campus/css/index.css' %}">
+{% endblock %}
+
 {% block content %}
+<div class="main-content">
+    <!-- 左栏 -->
     <div class="left-column">
-        <div style="background: white; padding: 40px; border: 1px solid #ddd; border-radius: 4px;">
-            <h2 style="color: #003366; margin-top: 0;">欢迎来到南江大学</h2>
-            <p>这是官网首页的测试内容。如果左右两栏排列正常，说明布局成功。</p>
-            <hr>
-            <p>当前时间：2025年5月17日</p>
+        <!-- 欢迎区域 -->
+        <div class="content-card welcome-card">
+            <div class="card-header">🏫 欢迎来到南江大学</div>
+            <p class="card-text">这是官网首页的测试内容。当前时间：2025年5月17日</p>
+            <div class="sidebar-tags">
+                <span class="tag">校园门户</span>
+                <span class="tag">信息中心</span>
+                <span class="tag">安全等级：内部</span>
+            </div>
+        </div>
+
+        <!-- 档案室警告 -->
+        <div class="content-card">
+            <div class="card-header">⚠️ 绝密访问警告</div>
+            <div class="secret-section">
+                <p><strong>等级：绝密</strong> · 以下内容仅限授权人员访问 · 违反规则者后果自负</p>
+                <p>访问者ID：███-████-███ · 最后访问：2025-05-17 14:28</p>
+            </div>
+        </div>
+        
+        <!-- 学生守则 -->
+        <a id="宿舍守则"></a>
+        <div class="content-card">
+            <div class="card-header">📜 《学生守则》节选 - 宿舍区</div>
+            <ul class="archive-rules">
+                <li>宿舍楼晚间23:00后实行宵禁。若在走廊听到脚步声，请立即返回房间，勿应答。</li>
+                <li>每层楼只有6间寝室。如果看到第7间的门牌，不要靠近，并立刻向宿管报告（如果TA在的话）。</li>
+                <li>宿舍管理员身穿深蓝色制服。若发现穿红色制服者自称宿管，切勿跟随。</li>
+                <li>夜间听到水房滴水声持续超过5分钟，请立即联系维修部门。</li>
+                <li>凌晨2:00-4:00期间，如遇电梯自动停靠不存在的楼层，请勿出电梯。</li>
+            </ul>
+            <div class="sidebar-tags">
+                <span class="tag">规则怪谈</span>
+                <span class="tag">宿舍区</span>
+                <span class="tag">安全等级：高危</span>
+                <span class="tag">需双人验证</span>
+            </div>
+        </div>
+        
+        <!-- 加密档案 -->
+        <a id="加密档案"></a>
+        <div class="content-card">
+            <div class="card-header">🔐 加密档案片段</div>
+            <p class="card-text">以下信息已加密，需要密钥解密：</p>
+            
+            <div class="encrypted-section">
+                <div class="cipher-text">
+Gur gehgu vf abg jung vg frrzf. 
+Lbhe ynfg fgnegvat cbvag vf gur svefg bar.
+Rira gur qvfgnapr orgjrra fcrrq naq fgneg vf na vasyhrapr.
+                </div>
+                
+                <div class="decrypt-area">
+                    <p><strong>解密提示：</strong> 凯撒密码，位移13。请输入解密后的正确句子：</p>
+                    <input type="text" class="decrypt-input" id="secret-code" placeholder="在此输入答案...">
+                    <button class="decrypt-button" onclick="checkAnswer()">提交验证</button>
+                    <div id="hint" class="hint-message"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 音频线索 -->
+        <div class="content-card">
+            <div class="card-header">🎧 音频线索分析</div>
+            <p class="card-text">在以下音频中隐藏了一段摩斯密码，已提取声谱图：</p>
+            
+            <div class="audio-visualizer">
+                <div class="audio-header">
+                    <div class="audio-icon"></div>
+                    <span class="audio-title">音频文件：recording_20250517_0130.mp3</span>
+                </div>
+                
+                <!-- 模拟声谱图 -->
+                <div class="visualizer-bars" id="visualizer">
+                    <div class="visualizer-bar" style="--i: 0; height: 20%;"></div>
+                    <div class="visualizer-bar" style="--i: 1; height: 40%;"></div>
+                    <div class="visualizer-bar" style="--i: 2; height: 60%;"></div>
+                    <div class="visualizer-bar" style="--i: 3; height: 80%;"></div>
+                    <div class="visualizer-bar" style="--i: 4; height: 100%;"></div>
+                    <div class="visualizer-bar" style="--i: 5; height: 80%;"></div>
+                    <div class="visualizer-bar" style="--i: 6; height: 60%;"></div>
+                    <div class="visualizer-bar" style="--i: 7; height: 40%;"></div>
+                    <div class="visualizer-bar" style="--i: 8; height: 20%;"></div>
+                </div>
+                
+                <div class="sidebar-tags">
+                    <span class="tag">音频解密</span>
+                    <span class="tag">摩斯密码</span>
+                    <span class="tag">声谱分析</span>
+                </div>
+            </div>
         </div>
     </div>
-
+    
+    <!-- 右栏 -->
     <div class="right-column">
-        <div style="background: #e7eff6; padding: 20px; border: 1px solid #bcd4e6; border-radius: 4px;">
-            <h4 style="margin-top: 0;">校园公告</h4>
-            <ul style="padding-left: 20px; font-size: 14px;">
-                <li>欢迎新同学 (2025-05-17)</li>
-                <li>关于系统维护的通知</li>
+        <!-- 校园公告 -->
+        <div class="content-card announcement-card">
+            <div class="card-header">📢 校园公告</div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>欢迎新同学 (2025-05-17)</span>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>关于系统维护的通知</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 新增 -->
+        <div class="content-card">
+            <div class="card-header">🆕 新增</div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>星眼 · 关于2025-05-17 第...</span>
+                    <span class="news-time">14:25</span>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>校园 · 南江大学2025级...</span>
+                    <span class="news-time">13:45</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 通知公告 -->
+        <div class="content-card">
+            <div class="card-header">📢 通知公告</div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>关于2025-05-17 事件相关资料归档说明（内部）</span>
+                    <span class="news-time">11:21</span>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>关于2025-05-17 事件的善意提醒</span>
+                    <span class="news-time">09:15</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 学术科研 -->
+        <div class="content-card">
+            <div class="card-header">🔬 学术科研</div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>"记忆可视化接口"项目进展</span>
+                    <span class="news-time">2025-07-15</span>
+                </a>
+            </div>
+            <div class="news-item">
+                <a href="#" class="news-link">
+                    <span>可信人机交互课程技术考试成绩公布</span>
+                    <span class="news-time">12:30</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 快速通道 -->
+        <div class="content-card">
+            <div class="card-header">🚀 快速通道</div>
+            <ul class="quick-links">
+                <li><a href="#">奖学金申报系统</a></li>
+                <li><a href="#">学生心理中心预约</a></li>
+                <li><a href="#">VPN / 邮箱服务</a></li>
+                <li><a href="#">门禁记录查询</a></li>
+                <li><a href="#">宿舍报修系统</a></li>
+                <li><a href="#">实验室申请</a></li>
             </ul>
         </div>
+        
+        <!-- 档案状态 -->
+        <div class="content-card">
+            <div class="card-header">📊 档案状态</div>
+            <div class="status-info">
+                <div class="status-row">
+                    <span class="status-label">完整性：</span>
+                    <span class="status-value integrity">92%</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">加密等级：</span>
+                    <span class="status-value encryption">AES-256</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">最后更新：</span>
+                    <span class="status-value">2025-05-17</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">访问记录：</span>
+                    <span class="status-value access">███次</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- USB驱动器入口 -->
+        <div class="content-card">
+            <div class="card-header">💾 数字档案入口</div>
+            <div class="usb-entry-wrapper">
+                <a href="{% url 'usb_home' %}" class="usb-entry-button">
+                    🔐 进入USB驱动器
+                </a>
+                <p class="usb-entry-desc">访问南江大学绝密数字档案系统</p>
+            </div>
+        </div>
     </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'campus/js/index.js' %}"></script>
+<script>
+    // 在导航栏添加网络状态指示器
+    document.addEventListener('DOMContentLoaded', function() {
+        const navContainer = document.querySelector('.nav-container');
+        if (navContainer) {
+            const networkStatus = document.createElement('div');
+            networkStatus.className = 'network-status';
+            networkStatus.innerHTML = `
+                <span class="status-dot"></span>
+                <span>在册</span>
+            `;
+            navContainer.appendChild(networkStatus);
+        }
+    });
+</script>
 {% endblock %}
