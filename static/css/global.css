@@ -1,530 +1,560 @@
-/* static/css/global.css */
-
-/* 1. 基础重置 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
-    line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
+	font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+	background-color: #0a0a0a;
+	color: #e0e0e0;
+	line-height: 1.6;
+	min-height: 100vh;
+	overflow-x: hidden;
 }
 
-/* 2. 顶部状态栏 (Status Bar) - 深色版本 */
+/* 2. 顶部状态栏 (Status Bar)*/
 .status-bar {
-    background-color: #111;
-    padding: 6px 0;
-    font-size: 13px;
-    color: #aaa;
-    border-bottom: 1px solid #222;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+	background-color: #111;
+	padding: 6px 0;
+	font-size: 13px;
+	color: #aaa;
+	border-bottom: 1px solid #222;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
 }
 
 .status-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-}
-
-.time-display {
-    color: #66ccff;
+	max-width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: flex-end; 
+	padding: 0 20px;
 }
 
 .login-status {
-    display: flex;
-    gap: 15px;
+	display: flex;
+	gap: 15px;
 }
 
 .login-status a {
-    color: #66ccff;
-    text-decoration: none;
+	color: #66ccff;
+	text-decoration: none;
 }
 
 .login-status a:hover {
-    color: #88ddff;
-    text-decoration: underline;
+	color: #88ddff;
+	text-decoration: underline;
 }
 
-/* 3. 页眉品牌区 (University Header) - 深色版本 */
+
 .university-header {
-    background-color: #111;
-    padding: 15px 0;
-    margin-top: 30px;
-    border-bottom: 2px solid #003366;
+	background-color: #111;
+	padding: 15px 0;
+	margin-top: 30px;
+	border-bottom: 2px solid #003366;
+	border-bottom: none; 
 }
 
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+	max-width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
 }
 
 .university-brand {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
 }
 
 .logo-placeholder {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #003366, #006699);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 20px;
-    color: #66ccff;
+	width: 50px;
+	height: 50px;
+	background: linear-gradient(135deg, #003366, #006699);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 20px;
+	color: #66ccff;
 }
 
 .university-titles h1 {
-    color: #66ccff;
-    font-size: 28px;
-    margin-bottom: 5px;
+	color: #66ccff;
+	font-size: 28px;
+	margin-bottom: 5px;
 }
 
 .university-titles h2 {
-    color: #88aacc;
-    font-size: 16px;
-    font-weight: normal;
+	color: #88aacc;
+	font-size: 16px;
+	font-weight: normal;
 }
 
-/* 搜索框 - 深色版本 */
+/* 搜索框 */
 .search-container {
-    display: flex;
+	display: flex;
 }
 
+/* 搜索框：实现图片中的椭圆形状 */
 .search-box {
-    display: flex;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
+	display: flex;
+	background-color: rgba(255, 255, 255, 0.05);
+	border: 1px solid #333;
+	border-radius: 20px; /* 椭圆圆角 */
+	overflow: hidden;
+	padding: 2px 5px 2px 15px;
+	align-items: center;
 }
 
 .search-box input {
-    background: transparent;
-    border: none;
-    padding: 8px 12px;
-    color: #ccc;
-    width: 250px;
-    font-size: 14px;
+	background: transparent;
+	border: none;
+	padding: 6px 0;
+	color: #888;
+	width: 220px;
+	font-size: 14px;
 }
 
 .search-box input::placeholder {
-    color: #666;
+	color: #666;
 }
 
 .search-box input:focus {
-    outline: none;
-    border-color: #66ccff;
+	outline: none;
+	border-color: #66ccff;
 }
 
 .search-box button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
+	background-color: #1e2a3a; /* 深蓝色背景 */
+	color: #fff;
+	border: none;
+	padding: 4px 16px;
+	cursor: pointer;
+	font-size: 13px;
+	border-radius: 15px; /* 按钮也设为圆角 */
+	margin-left: 10px;
+	transition: background 0.3s;
 }
 
 .search-box button:hover {
-    background-color: #004488;
+	background-color: #003366;
 }
 
-/* 4. 导航菜单 (Main Navigation) - 深色版本 */
+/* 4. 导航菜单 (Main Navigation)*/
 .main-navigation {
-    background-color: #111;
-    border-bottom: 1px solid #222;
-    position: sticky;
-    top: 30px;
-    z-index: 999;
+	background-color: #111;
+	border-bottom: 1px solid #222;
+	position: sticky;
+	top: 30px;
+	z-index: 999;
 }
 
+/* 4. 导航容器：改为 Flex 布局使菜单和搜索框并排 */
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+	max-width: 1400px; /* 调宽以容纳更多项 */
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
 }
 
+/* 导航菜单样式调整 */
 .nav-menu {
-    display: flex;
-    list-style: none;
+	display: flex;
+	list-style: none;
+	gap: 5px; /* 项与项之间的间距 */
 }
 
 .nav-menu li {
-    position: relative;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .nav-menu a {
-    display: block;
-    color: #ccc;
-    text-decoration: none;
-    padding: 12px 18px;
-    font-size: 15px;
-    transition: all 0.3s;
+	display: block;
+	color: #e0e0e0;
+	text-decoration: none;
+	padding: 12px 15px; /* 增加点击区域 */
+	font-size: 16px;
+	transition: color 0.3s ease;
+	position: relative;
+	border-bottom: 2px solid transparent; /* 预留边框位置防止抖动 */
 }
-
-.nav-menu a:hover,
+/* 悬停效果：仅文字变色 */
+.nav-menu a:hover {
+	color: #66ccff;
+}
+/* 激活状态：显示蓝色下划线 */
 .nav-menu a.active {
-    color: #66ccff;
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #66ccff;
+	color: #66ccff;
+	border-bottom: 2px solid #66ccff;
 }
 
 /* 网络状态指示器 */
 .network-status {
-    display: flex;
-    align-items: center;
-    color: #4CAF50;
-    font-size: 14px;
+	display: flex;
+	align-items: center;
+	color: #4caf50;
+	font-size: 14px;
 }
 
 .status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #4CAF50;
-    border-radius: 50%;
-    margin-right: 6px;
-    animation: pulse 2s infinite;
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background-color: #4caf50;
+	border-radius: 50%;
+	margin-right: 6px;
+	animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 /* 5. 页脚 (Footer) - 深色版本 */
 .main-footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid #222;
-    padding: 25px 0;
-    margin-top: 40px;
-    text-align: center;
-    color: #666;
-    font-size: 14px;
+	background-color: #0a0a0a;
+	border-top: 1px solid #222;
+	padding: 20px 0; /* 减小上下边距，使其更像图片中的扁平化风格 */
+	margin-top: 40px;
+	color: #666;
+	font-size: 14px;
+}
+
+/* 页脚容器：保持 1400px 宽度并居中对齐 */
+.footer-container {
+	max-width: 1400px; /* 与导航栏 header 保持宽度一致 */
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between; /* 关键：使版权和链接分居两侧 */
+	align-items: center;
+	padding: 0 20px;
+}
+
+/* 右侧链接列表样式 */
+.footer-links {
+	list-style: none;
+	display: flex;
+	gap: 20px; /* 链接之间的间距 */
+}
+
+.footer-links a {
+	color: #666;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.footer-links a:hover {
+	color: #66ccff; /* 悬停时显示蓝色 */
 }
 
 .main-footer p {
-    margin: 5px 0;
-}
-
-.main-footer p:first-child {
-    color: #888;
-    font-weight: bold;
+	margin: 0;
+	text-align: left; /* 左对齐 */
 }
 
 /* 6. 主要内容区域 */
 .main-content {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
+	max-width: 1400px;
+	margin: 30px auto;
+	padding: 0 20px;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 25px;
 }
 
 /* 内容卡片 - 深色版本 */
 .content-card {
-    background-color: #111;
-    border: 1px solid #222;
-    border-radius: 6px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s, border-color 0.2s;
+	background-color: #111;
+	border: 1px solid #222;
+	border-radius: 6px;
+	padding: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: transform 0.2s, border-color 0.2s;
 }
 
 .content-card:hover {
-    transform: translateY(-2px);
-    border-color: #333;
+	transform: translateY(-2px);
+	border-color: #333;
 }
 
 .card-header {
-    color: #66ccff;
-    font-size: 18px;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #333;
-    display: flex;
-    align-items: center;
-}
-
-.card-header::before {
-    content: "▶";
-    margin-right: 8px;
-    color: #4CAF50;
-    font-size: 14px;
+	color: #66ccff;
+	font-size: 18px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #333;
+	display: flex;
+	align-items: center;
 }
 
 /* 新闻列表样式 */
 .news-item {
-    padding: 12px 0;
-    border-bottom: 1px dashed #333;
+	padding: 12px 0;
+	border-bottom: 1px dashed #333;
 }
 
 .news-item:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .news-link {
-    color: #ccc;
-    text-decoration: none;
-    display: block;
-    transition: color 0.2s;
+	color: #ccc;
+	text-decoration: none;
+	display: block;
+	transition: color 0.2s;
 }
 
 .news-link:hover {
-    color: #66ccff;
+	color: #66ccff;
 }
 
 .news-time {
-    color: #666;
-    font-size: 13px;
-    margin-left: 10px;
+	color: #666;
+	font-size: 13px;
+	margin-left: 10px;
 }
 
 /* 档案内容特殊样式 */
 .secret-section {
-    background-color: #0a0a0a;
-    border-left: 4px solid #ff4444;
-    padding: 15px;
-    margin: 20px 0;
+	background-color: #0a0a0a;
+	border-left: 4px solid #ff4444;
+	padding: 15px;
+	margin: 20px 0;
 }
 
 .archive-rules {
-    list-style: none;
-    margin: 15px 0;
+	list-style: none;
+	margin: 15px 0;
 }
 
 .archive-rules li {
-    padding: 8px 0;
-    padding-left: 20px;
-    position: relative;
+	padding: 8px 0;
+	padding-left: 20px;
+	position: relative;
 }
 
 .archive-rules li::before {
-    content: "⚠";
-    position: absolute;
-    left: 0;
-    color: #ff4444;
+	content: "⚠";
+	position: absolute;
+	left: 0;
+	color: #ff4444;
 }
 
 /* 加密部分 */
 .encrypted-section {
-    background-color: #0d1b2a;
-    border: 1px solid #1e3a5f;
-    padding: 20px;
-    border-radius: 4px;
-    margin: 20px 0;
+	background-color: #0d1b2a;
+	border: 1px solid #1e3a5f;
+	padding: 20px;
+	border-radius: 4px;
+	margin: 20px 0;
 }
 
 .cipher-text {
-    font-family: monospace;
-    background-color: #000;
-    color: #00ff88;
-    padding: 15px;
-    border-radius: 4px;
-    margin: 15px 0;
-    border: 1px solid #1e3a5f;
-    white-space: pre-wrap;
-    word-break: break-all;
+	font-family: monospace;
+	background-color: #000;
+	color: #00ff88;
+	padding: 15px;
+	border-radius: 4px;
+	margin: 15px 0;
+	border: 1px solid #1e3a5f;
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
 /* 解密输入区域 */
 .decrypt-area {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 4px;
-    margin-top: 20px;
+	background-color: #111;
+	padding: 20px;
+	border-radius: 4px;
+	margin-top: 20px;
 }
 
 .decrypt-input {
-    width: 100%;
-    background-color: #000;
-    border: 1px solid #333;
-    color: #00ff88;
-    padding: 12px;
-    border-radius: 4px;
-    font-family: monospace;
-    margin: 10px 0;
+	width: 100%;
+	background-color: #000;
+	border: 1px solid #333;
+	color: #00ff88;
+	padding: 12px;
+	border-radius: 4px;
+	font-family: monospace;
+	margin: 10px 0;
 }
 
 .decrypt-button {
-    background: linear-gradient(135deg, #003366, #006699);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s;
+	background: linear-gradient(135deg, #003366, #006699);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: all 0.3s;
 }
 
 .decrypt-button:hover {
-    background: linear-gradient(135deg, #004488, #0088cc);
-    transform: translateY(-1px);
+	background: linear-gradient(135deg, #004488, #0088cc);
+	transform: translateY(-1px);
 }
 
 /* 快速链接样式 */
 .quick-links {
-    list-style: none;
+	list-style: none;
 }
 
 .quick-links li {
-    padding: 10px 0;
-    border-bottom: 1px solid #222;
+	padding: 10px 0;
+	border-bottom: 1px solid #222;
 }
 
 .quick-links a {
-    color: #66ccff;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 8px 0;
-    transition: color 0.2s;
+	color: #66ccff;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	padding: 8px 0;
+	transition: color 0.2s;
 }
 
 .quick-links a:hover {
-    color: #88ddff;
-    text-decoration: underline;
+	color: #88ddff;
+	text-decoration: underline;
 }
 
 .quick-links a::before {
-    content: "↗";
-    margin-right: 10px;
-    color: #4CAF50;
+	content: "↗";
+	margin-right: 10px;
+	color: #4caf50;
 }
 
 /* 侧边栏标签 */
 .sidebar-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 15px 0;
 }
 
 .tag {
-    background-color: #1a1a1a;
-    color: #88aacc;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 12px;
-    border: 1px solid #333;
+	background-color: #1a1a1a;
+	color: #88aacc;
+	padding: 4px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	border: 1px solid #333;
 }
 
 /* 列布局 */
-.left-column, .right-column {
-    min-height: 500px;
+.left-column,
+.right-column {
+	min-height: 500px;
 }
 
 /* 音频可视化 */
 .audio-visualizer {
-    background-color: #000;
-    padding: 15px;
-    border-radius: 4px;
-    margin: 15px 0;
-    border: 1px solid #333;
+	background-color: #000;
+	padding: 15px;
+	border-radius: 4px;
+	margin: 15px 0;
+	border: 1px solid #333;
 }
 
 .visualizer-bars {
-    height: 100px;
-    display: flex;
-    align-items: flex-end;
-    gap: 2px;
+	height: 100px;
+	display: flex;
+	align-items: flex-end;
+	gap: 2px;
 }
 
 .visualizer-bar {
-    flex: 1;
-    background-color: #003366;
-    transition: height 0.3s ease;
+	flex: 1;
+	background-color: #003366;
+	transition: height 0.3s ease;
 }
 
 /* 返回主页按钮 */
 .home-back-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 9999;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 9999;
 }
 
 .home-back-btn a {
-    background: #003366;
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    font-size: 14px;
-    display: inline-block;
-    transition: background 0.3s;
+	background: #003366;
+	color: white;
+	text-decoration: none;
+	padding: 8px 15px;
+	border-radius: 4px;
+	font-size: 14px;
+	display: inline-block;
+	transition: background 0.3s;
 }
 
 .home-back-btn a:hover {
-    background: #004488;
+	background: #004488;
 }
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #111;
+	background: #111;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
+	background: #333;
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #444;
+	background: #444;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .main-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .search-box input {
-        width: 200px;
-    }
-    
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .nav-menu li a {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
+	.main-content {
+		grid-template-columns: 1fr;
+	}
+
+	.header-container {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.search-box input {
+		width: 200px;
+	}
+
+	.nav-menu {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.nav-menu li a {
+		padding: 10px 15px;
+		font-size: 14px;
+	}
 }

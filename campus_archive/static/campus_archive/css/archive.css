@@ -1,0 +1,135 @@
+/* 档案页面专属暗色调样式 */
+:root {
+	--archive-bg: #0d1117;
+	--card-bg: #161b22;
+	--border-color: #30363d;
+	--text-dim: #8b949e;
+	--accent-blue: #58a6ff;
+}
+
+body {
+	background-color: var(--archive-bg);
+}
+
+.archive-container {
+	max-width: 1200px;
+	margin: 20px auto;
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 20px;
+	padding: 0 20px;
+	color: #c9d1d9;
+}
+
+.card {
+	background: var(--card-bg);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+/* 标题组样式，控制箭头和文字的距离 */
+.title-group {
+	display: flex;
+	align-items: center;
+	gap: 8px; /* 箭头和文字的间距，调小这个值可以让它们更近 */
+}
+
+.card-header {
+	border-bottom: 1px solid var(--border-color);
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: flex-start; /* flex-start，让内容从左开始 */
+	align-items: center;
+}
+
+.card-title {
+	font-size: 1.2rem;
+	color: #f0f6fc;
+	margin-left: 8px;
+}
+
+.arrow-icon {
+	color: #4caf50; /* 绿色箭头 */
+	font-size: 0.9rem;
+}
+/* 时间轴样式 */
+.timeline-item {
+	display: flex;
+	justify-content: space-between; /* 将内容推向两端 */
+	align-items: center;
+	margin-bottom: 12px;
+	padding: 4px 0;
+}
+.year-tag {
+	background: #21262d;
+	border: 1px solid var(--border-color);
+	color: var(--accent-blue);
+	padding: 2px 10px;
+	border-radius: 12px;
+	font-size: 0.85rem;
+	min-width: 60px;
+	text-align: center;
+	flex-shrink: 0; /* 防止年份标签被压缩 */
+}
+
+.event-desc {
+	color: #c9d1d9;
+	font-size: 0.95rem;
+	text-align: right; /* 文字本身右对齐 */
+	flex-grow: 1; /* 占据中间所有剩余空间 */
+	margin-left: 20px; /* 确保年份和描述之间有最小间距 */
+}
+
+/* 表格样式 */
+.archive-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.9rem;
+}
+.archive-table th {
+	color: var(--text-dim);
+	text-align: left;
+	padding: 12px 8px;
+	border-bottom: 1px solid var(--border-color);
+}
+.archive-table td {
+	padding: 12px 8px;
+	border-bottom: 1px solid var(--border-color);
+}
+.row-highlight {
+	background-color: rgba(56, 139, 253, 0.1);
+}
+
+/* 侧边栏按钮 */
+.side-nav-btn {
+	display: block;
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 8px;
+	background: #21262d;
+	border: 1px solid var(--border-color);
+	color: #c9d1d9;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 6px;
+}
+.side-nav-btn:hover {
+	background: #30363d;
+}
+
+/* 图片网格 */
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 15px;
+}
+.gallery-item img {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 4px;
+	border: 1px solid var(--border-color);
+}

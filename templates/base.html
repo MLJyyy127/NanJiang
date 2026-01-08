@@ -1,66 +1,99 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}南江大学{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    {% block extra_head %}{% endblock %}
-</head>
-<body>
-    <div class="home-back-btn">
-        <a href="{% url 'campus:campus_index' %}">← 返回主页</a>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}南江大学{% endblock %}</title>
+		<link rel="stylesheet" href="{% static 'css/global.css' %}" />
+		{% block extra_head %}{% endblock %}
+	</head>
+	<body>
 
-    <div class="status-bar">
-        <div class="status-container">
-            <div class="time-display">2025-05-17 14:30</div>
-            <div class="login-status">
-                <span>未登录</span>
-                <a href="#">学生登录</a>
-                <a href="#">教师登录</a>
-            </div>
-        </div>
-    </div>
+		<div class="status-bar">
+			<div class="status-container">
+				<div class="login-status">
+					<a href="#">学生登录</a>
+					<a href="#">教师登录</a>
+				</div>
+			</div>
+		</div>
 
-    <header class="university-header">
-        <div class="header-container">
-            <div class="university-brand">
-                <div class="logo-placeholder">NJU</div>
-                <div class="university-titles">
-                    <h1>南江大学</h1>
-                    <h2>NANJIANG UNIVERSITY</h2>
+		<header class="university-header">
+			<div class="header-container">
+				<div class="university-brand">
+					<div class="logo-placeholder">NJU</div>
+					<div class="university-titles">
+						<h1>南江大学</h1>
+						<h2>NANJIANG UNIVERSITY</h2>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<nav class="main-navigation">
+			<div class="nav-container">
+				<ul class="nav-menu">
+					<li>
+						<a href="{% url 'campus:campus_index' %}" class="{% if request.path == '/campus/index' %}active{% endif %}">首页</a>
+					</li>
+					<li><a href="/campus/info/about/" class="{% if '/info/about/' in request.path %}active{% endif %}">学校概况</a></li>
+					<li><a href="#">组织机构</a></li>
+					<li><a href="#">教育教学</a></li>
+					<li><a href="#">科学研究</a></li>
+					<li><a href="#">招生就业</a></li>
+					<li><a href="#">校园服务</a></li>
+					<li><a href="#">教师队伍</a></li>
+					<li><a href="{% url 'archive:archive_index' %}"  class="{% if '/campus/archive/' in request.path %}active{% endif %}">校史档案</a></li>
+				</ul>
+
+				<div class="search-container">
+					<div class="search-box">
+						<input type="text" placeholder="搜索：B-4、门禁记录、奖学金..." />
+						<button>搜索</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		{% block content %}{% endblock %}
+
+		<footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <p>版权所有 © 2025 南江大学</p>
+                </div>
+                
+                <div class="footer-right">
+                    <ul class="footer-links">
+                        <li><a href="/campus/info/about/">学校概况</a></li>
+                        <li><a href="/campus/info/org/">组织机构</a></li>
+                        <li><a href="#">教育教学</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" placeholder="搜索线索...">
-                    <button>搜索</button>
-                </div>
-            </div>
-        </div>
-    </header>
+        </footer>
 
-    <nav class="main-navigation">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li><a href="{% url 'campus:campus_index' %}" class="active">首页</a></li>
-                <li><a href="/campus/info/about/">学校概况</a></li>
-                <li><a href="/campus/info/org/">组织机构</a></li>
-                <li><a href="#">科学研究</a></li>
-                <li><a href="{% url 'campus:archive_index' %}">校史档案</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    {% block content %}{% endblock %}
-
-    <footer class="main-footer">
-        <p>南江大学档案管理系统 · 安全等级：绝密 · 访问监控中</p>
-        <p>系统检测到您的访问行为已被记录 · 请遵守《信息安全保密条例》</p>
-    </footer>
-
-    {% block extra_js %}{% endblock %}
-</body>
+		{% block extra_js %}
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const navLinks = document.querySelectorAll('#mainNav a');
+                const currentPath = window.location.pathname;
+        
+                navLinks.forEach(link => {
+                    // 移除所有 active 类
+                    link.classList.remove('active');
+                    
+                    // 获取链接的 href 路径
+                    const linkPath = link.getAttribute('href');
+        
+                    // 如果当前路径包含链接路径（处理子页面情况），则设为 active
+                    if (currentPath === linkPath || (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        {% endblock %}
+	</body>
 </html>

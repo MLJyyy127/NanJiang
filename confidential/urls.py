@@ -24,4 +24,6 @@ urlpatterns = [
     # 将所有以 usb_drive/ 开头的请求交给 usb_drive 这个 App 处理
     path('usb_drive/', include('usb_drive.urls')),
     path('campus/', include('campus.urls')), # 学校官网首页
+    path('campus/info/', include('campus_info.urls')),
+    path('campus/archive/', include('campus_archive.urls')),
 ]

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'intro',
     'usb_drive',
     'campus',
+    'campus_info',
+    'campus_archive'
 ]
 
 MIDDLEWARE = [

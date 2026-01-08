@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}学校概况 - 南江大学{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'campus_info/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="main-content">
+    <div class="left-column">
+        
+        <section class="content-card">
+            <h2 class="card-header">学校简介 ABOUT NJU</h2>
+            <div class="card-body">
+                <p>南江大学（Nanjiang University）是一所以工为主、理工交叉，兼具人文与社会科学的综合性高校。学校坚持“以学术立校、以人格育人”的办学理念，形成“基础研究与应用创新并重，服务地方与面向未来并行”的学科布局。</p>
+                <p>学校设有东、西两个校区与若干科研园区，总占地约 2700 亩，建筑面积约 180 万平方米。现有全日制在校生约 3.6 万人，其中研究生 1.2 万人；教职工 3200 余人，专任教师 2100 余人。</p>
+                
+                <div class="info-tags-group">
+                    <div class="info-row"><span class="tag">定位</span><p>“新工科 + 新文科”协同发展、服务国家与区域战略</p></div>
+                    <div class="info-row"><span class="tag">特色</span><p>信息、材料、生命健康、智能制造为优势方向</p></div>
+                    <div class="info-row"><span class="tag">愿景</span><p>建设“有温度、有担当、有创新力”的高水平大学</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2 class="card-header">学校速览 FACTS & FIGURES</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">全日制在校生</span>
+                    <span class="stat-value">36,000+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">专任教师</span>
+                    <span class="stat-value">2,100+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">重点实验室/平台</span>
+                    <span class="stat-value">48</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">一级学科</span>
+                    <span class="stat-value">26</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">本科专业</span>
+                    <span class="stat-value">72</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">校地/校企联合中心</span>
+                    <span class="stat-value">30+</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2 class="card-header">历史沿革 HISTORY</h2>
+            <ul class="history-list">
+                <li><span class="year">1958 年：</span><span class="event">南江工学院筹建（前身）。</span></li>
+                <li><span class="year">1978 年：</span><span class="event">恢复招生，设立计算机与材料等学科。</span></li>
+                <li><span class="year">1998 年：</span><span class="event">更名为南江大学，设立研究生院。</span></li>
+                <li><span class="year">2015 年：</span><span class="event">东校区启用，信息学部整体迁入。</span></li>
+                <li><span class="year">2022 年：</span><span class="event">新医科与智能装备交叉创新中心成立。</span></li>
+            </ul>
+        </section>
+
+        <section class="content-card">
+            <h2 class="card-header">校园分布与交通 CAMPUS MAP</h2>
+            <div class="map-placeholder">
+                <img src="{% static 'images/campus_map.jpg' %}" alt="校园地图" style="width:100%; border-radius:4px; margin-bottom:15px;">
+            </div>
+            <div class="info-tags-group">
+                <div class="info-row"><span class="tag">东校区</span><p>清城区学府路 88 号（虚构）· 教学、科研、图书馆、体育中心</p></div>
+                <div class="info-row"><span class="tag">西校区</span><p>清城区文化路 16 号（虚构）· 人文学部、艺术学院、博物馆</p></div>
+                <div class="info-row"><span class="tag">交通</span><p>地铁 2 号线“南江大学站”A 口，公交 23/77/快 5 路</p></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="right-column">
+        <div class="content-card">
+            <h3 class="card-header">快速入口</h3>
+            <ul class="quick-links">
+                <li><a href="#">本科招生</a></li>
+                <li><a href="#">研究生招生</a></li>
+                <li><a href="#">科研平台</a></li>
+                <li><a href="#">校园服务</a></li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3 class="card-header">联系方式</h3>
+            <div class="contact-info" style="font-size: 14px; color: #aaa;">
+                <p>地址：南江市清城区学府路 88 号（虚构）</p>
+                <p>总机：(000) 1234 5678</p>
+                <p>邮箱：info@qh.edu（虚构域）</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3 class="card-header">友情链接</h3>
+            <ul class="quick-links">
+                <li><a href="#">校务公开</a></li>
+                <li><a href="#">师资队伍</a></li>
+                <li><a href="#">校史馆</a></li>
+            </ul>
+            <p style="font-size: 12px; color: #555; margin-top: 15px;">声明：本网站为剧情演示用途，所涉人名、单位、场景均为虚构。如与现实雷同，纯属巧合。</p>
+        </div>
+    </div>
+</main>
+{% endblock %}
